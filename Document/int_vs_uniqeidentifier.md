@@ -2,6 +2,7 @@
 
 Al diseñar bases de datos y escoger un tipo de dato para usar como clave primaria, una decisión común es utilizar un int autonumérico  (incremental) y uniqueidentifier (GUID) dependiendo de las necesidades específicas del proyecto, incluyendo factores como el tamaño y la naturaleza de los datos, los requisitos de rendimiento, y la arquitectura del sistema. En sistemas con requisitos de unicidad global o en entornos distribuidos, uniqueidentifier puede ser la mejor elección, mientras que para aplicaciones con requisitos de alto rendimiento y eficiencia de almacenamiento, int autonumérico podría ser preferible.
 
+&nbsp;
 ## INT
 ### Ventajas de usar int autonumérico:
 
@@ -17,6 +18,7 @@ Al diseñar bases de datos y escoger un tipo de dato para usar como clave primar
 
 - **Dependencia de la base de datos:** Los valores autonuméricos dependen de la secuencia generada por la base de datos, lo que puede complicar la inserción de datos en entornos distribuidos o desacoplados, donde generar un nuevo valor único antes de la inserción puede ser necesario.
 
+&nbsp;
 ## UNIQUEIDENTIFIER
 ### Ventajas de usar uniqueidentifier:
 

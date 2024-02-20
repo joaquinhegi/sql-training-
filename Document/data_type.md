@@ -35,8 +35,8 @@ Los tipos numéricos aproximados son útiles para cálculos científicos o cuand
 | `date`           | 3 bytes        | 0001-01-01 a 9999-12-31 | 1 día | Utilizar cuando solo se necesita almacenar la fecha sin la hora. |
 | `smalldatetime`  | 4 bytes        | 1900-01-01 a 2079-06-06 | 1 minuto | Menor rango y precisión. Adecuado para aplicaciones con requisitos menos estrictos. |
 | `time`           | 3 a 5 bytes    | 00:00:00.0000000 a 23:59:59.9999999 | 100 nanosegundos | Ideal para almacenar solo la hora del día con precisión hasta los nanosegundos. |
-| `datetime2`      | 6 a 8 bytes    | 0001-01-01 a 9999-12-31 | 100 nanosegundos | Ofrece mayor rango y precisión que `datetime`. Usar cuando se necesitan estas características. |
-| `datetime`       | 8 bytes        | 1753-01-01 a 9999-12-31 | 3.33 milisegundos | Tradicionalmente utilizado para fecha y hora. `datetime2` es generalmente preferible por su mayor precisión. |
+| `datetime2`      | 6 a 8 bytes    | 0001-01-01 a 9999-12-31 | 100 nanosegundos | Ofrece mayor rango y precisión que `datetime`. Usar cuando se necesitan estas características. Recomendado para nuevos proyectos |
+| `datetime`       | 8 bytes        | 1753-01-01 a 9999-12-31 | 3.33 milisegundos | Tradicionalmente utilizado para fecha y hora. `datetime2` es generalmente preferible por su mayor precisión. Deprecado|
 | `datetimeoffset` | 8 a 10 bytes   | 0001-01-01 a 9999-12-31 | 100 nanosegundos | Para fecha y hora con información de zona horaria. Útil en aplicaciones distribuidas globalmente. |
 
 
