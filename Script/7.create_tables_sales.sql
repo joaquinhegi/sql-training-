@@ -23,8 +23,8 @@ CREATE TABLE Address (
 -- Crear tabla Customers
 CREATE TABLE Customers (
     CustomerId INT IDENTITY PRIMARY KEY,
-    CustomerName VARCHAR(255) NOT NULL,
-    ContactName VARCHAR(255),
+    CustomerName NVARCHAR(255) NOT NULL,
+    ContactName NVARCHAR(255),
     AddressId INT,
     FOREIGN KEY (AddressId) REFERENCES Address(AddressId)
 )
@@ -32,13 +32,13 @@ CREATE TABLE Customers (
 -- Crear tabla Products
 CREATE TABLE Products (
     ProductId INT IDENTITY PRIMARY KEY,
-    ProductName VARCHAR(255) NOT NULL,
+    ProductName NVARCHAR(255) NOT NULL,
 )
 
 -- Crear tabla VatTypes
 CREATE TABLE VatTypes (
     VatTypeId INT PRIMARY KEY,
-    Description VARCHAR(255) NOT NULL,
+    Description NVARCHAR(255) NOT NULL,
     VatRate DECIMAL(5,2) NOT NULL 
 )
 
@@ -51,6 +51,7 @@ CREATE TABLE Sales.InvoicesHeader (
     TaxBase DECIMAL(10, 2) NOT NULL,
     TotalVat DECIMAL(10, 2) NOT NULL,
     Total DECIMAL(18,2) NOT NULL,
+    InvoiceType CHAR(10) DEFAULT 'Invoice' 
     FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId),
     FOREIGN KEY (AddressId) REFERENCES Address(AddressId)
 )
@@ -72,3 +73,7 @@ CREATE TABLE Sales.InvoicesDetail (
     FOREIGN KEY (VatTypeId) REFERENCES dbo.VatTypes (VatTypeId),
     FOREIGN KEY (ProductId) REFERENCES dbo.Products (ProductId)
 )
+
+update Sales.InvoicesHeader 
+set InvoiceType = 'Receive'
+where InvoiceDate < '01/01/2023'
